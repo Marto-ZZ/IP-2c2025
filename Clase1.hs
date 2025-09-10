@@ -35,9 +35,7 @@ algunoEsCero2 x y = False
 
 --2e
 ambosSonCero :: Float -> Float -> Bool
-ambosSonCero x y | x == y == 0 = True
-ambosSonCero x y | x /== 0 = False
-ambosSonCero x y | y /== 0 = False
+ambosSonCero x y = x == 0 && y == 0
 
 ambosSonCero2 0 0 = True
 ambosSonCero2 x 0 = False
