@@ -1,4 +1,4 @@
---1--
+--1
 f 1 = 8
 f 4 = 131
 f 16 = 16
@@ -41,5 +41,29 @@ ambosSonCero2 0 0 = True
 ambosSonCero2 x 0 = False
 ambosSonCero2 0 y = False
 
+--2f
+enMismoIntervalo :: Float -> Float -> Bool
+enMismoIntervalo x y | x <= 3 && y <= 3 = True
+                     | x > 3 && x <= 7 && y > 3 && y <= 7 = True
+                     | x > 7 && y > 7 = True
+                     | otherwise = False
 
+--2g
+sumaDistintos :: Int -> Int -> Int -> Int
+sumaDistintos a b c | a /= b && a /= c && b /= c = a + b + c
+                    | a == b && a /= c = a + c
+                    | a == c && a /= b = a + b
+                    | b == c && b /= a = b + a
+                    | otherwise = a
 
+--2h
+esMultiplo :: Int -> Int -> Bool
+esMultiplo a b = mod a b == 0
+
+--2i
+digitoUnidades :: Int -> Int
+digitoUnidades n = mod n 10
+
+--2j
+digitoDecenas :: Int -> Int
+digitoDecenas n | n>9 = mod n 100
