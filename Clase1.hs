@@ -1,9 +1,9 @@
 --1
-f 1 = 8
-f 4 = 131
-f 16 = 16
+ff 1 = 8
+ff 4 = 131
+ff 16 = 16
 
-g x | x == 8 = 16
+gg x | x == 8 = 16
     | x == 16 = 4
     | x == 131 = 1
     | otherwise = -1
@@ -67,3 +67,75 @@ digitoUnidades n = mod n 10
 --2j
 digitoDecenas :: Int -> Int
 digitoDecenas n | n>9 = mod n 100
+
+--3
+estanRelacionados :: Int -> Int -> Bool
+estanRelacionados a b | a == 0 || b == 0 || div (-a) b ==0 = False
+                      | a*a + a*b*div (-a) b == 0 = True
+                      | otherwise = False
+
+--4 a
+productoInterno :: (Int, Int) -> (Int, Int) -> Int
+productoInterno (a,b) (c,d) = a*c + b*d
+
+--4b
+esParMenor :: (Int, Int) -> (Int, Int) -> Bool
+esParMenor (a,b)(c,d) | a < c && b < d = True
+                      | otherwise = False
+
+--4c
+distancia :: (Float, Float) -> (Float, Float) -> Float
+distancia (a,b) (c,d) = sqrt((c-a)**2 + (d-b)**2)
+
+--4d
+sumaTerna :: (Int, Int, Int) -> Int
+sumaTerna (a,b,c) = a + b + c
+
+--4e
+sumarSoloMultiplos :: (Int, Int, Int) -> Int -> Int
+sumarSoloMultiplos (a,b,c) d | mod a d == 0 && mod b d == 0 && mod c d == 0 = a + b + c
+                             | mod a d == 0 && mod b d == 0 && mod c d /= 0 = a + b
+                             | mod a d == 0 && mod b d /= 0 && mod c d == 0 = a + c
+                             | mod a d /= 0 && mod b d == 0 && mod c d == 0 = b + c
+                             | mod a d == 0 && mod b d /= 0 && mod c d /= 0 = a
+                             | mod b d == 0 && mod a d /= 0 && mod c d /= 0 = b
+                             | mod c d == 0 && mod a d /= 0 && mod b d /= 0 = c
+                             | otherwise = 0
+
+--4f
+posPrimerPar :: (Int, Int, Int) -> Int
+posPrimerPar (a,b,c) | mod a 2 == 0 = a
+                     | mod b 2 == 0 = b
+                     | mod c 2 == 0 = c
+                     | otherwise = 4
+
+--4g
+crearPar :: a -> b -> (a,b)
+crearPar x y = (x,y)
+
+--4h
+invertir :: (a,b) -> (b,a)
+invertir (x,y) = (y,x)
+
+--5
+f :: Int-> Int
+f n | n <= 7 = n^2
+    | n > 7 = 2*n - 1
+
+g:: Int -> Int
+g n | mod n 2 == 0 = div n 2
+    | otherwise = 3*n + 1
+
+todosMenores :: (Int, Int, Int) -> Bool
+todosMenores (a,b,c) | f a > g a && f b > g b && f c > g c = True
+                     | otherwise = False
+
+--6
+type Año = Int
+type EsBisiesto = Bool
+bisiesto :: Año -> EsBisiesto
+bisiesto a | mod a 4 /= 0 = False 
+           | mod a 100 == 0 && mod a 400 /= 0 = False
+           | otherwise = True
+
+--7a
