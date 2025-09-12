@@ -85,7 +85,7 @@ esParMenor (a,b)(c,d) | a < c && b < d = True
 
 --4c
 distancia :: (Float, Float) -> (Float, Float) -> Float
-distancia (a,b) (c,d) = sqrt((c-a)**2 + (d-b)**2)
+distancia (a,b) (c,d) = sqrt ((c-a)**2 + (d-b)**2)
 
 --4d
 sumaTerna :: (Int, Int, Int) -> Int
@@ -104,9 +104,9 @@ sumarSoloMultiplos (a,b,c) d | mod a d == 0 && mod b d == 0 && mod c d == 0 = a 
 
 --4f
 posPrimerPar :: (Int, Int, Int) -> Int
-posPrimerPar (a,b,c) | mod a 2 == 0 = a
-                     | mod b 2 == 0 = b
-                     | mod c 2 == 0 = c
+posPrimerPar (a,b,c) | even a = a     --Tambien se puede usar mod a 2 == 0 = a para cada variable
+                     | even b = b
+                     | even c = c      
                      | otherwise = 4
 
 --4g
@@ -123,7 +123,7 @@ f n | n <= 7 = n^2
     | n > 7 = 2*n - 1
 
 g:: Int -> Int
-g n | mod n 2 == 0 = div n 2
+g n | even n = div n 2
     | otherwise = 3*n + 1
 
 todosMenores :: (Int, Int, Int) -> Bool
@@ -134,8 +134,36 @@ todosMenores (a,b,c) | f a > g a && f b > g b && f c > g c = True
 type Año = Int
 type EsBisiesto = Bool
 bisiesto :: Año -> EsBisiesto
-bisiesto a | mod a 4 /= 0 = False 
+bisiesto a | mod a 4 /= 0 = False
            | mod a 100 == 0 && mod a 400 /= 0 = False
            | otherwise = True
 
 --7a
+distanciaManhattan :: (Float, Float, Float) -> (Float, Float, Float) -> Float
+distanciaManhattan (x1,y1,z1) (x2,y2,z2) = abs (x1 - x2) + abs (y1 - y2) + abs (z1 - z2)
+
+--7b
+type Punto3D = (Float, Float, Float)
+distanciaManhattan2 :: Punto3D -> Punto3D -> Float
+distanciaManhattan2 (x1,y1,z1) (x2,y2,z2) = abs (x1 - x2) + abs (y1 - y2) + abs (z1 - z2)
+
+--8
+sumaUltimosDosDigitos :: Int -> Int
+sumaUltimosDosDigitos n = abs n `mod` 10 + (abs n `div` 10) `mod` 10
+
+comparar :: Int -> Int -> Int
+comparar a b | sumaUltimosDosDigitos a < sumaUltimosDosDigitos b = 1
+             | sumaUltimosDosDigitos a > sumaUltimosDosDigitos b = -1
+             | sumaUltimosDosDigitos a == sumaUltimosDosDigitos b = 0
+
+--9a La funcion "f1" toma una variable Float y devuelve un "1" si esa variable n vale 0, en cualquier otro caso devuelve un "0"
+
+--9b La funcion "f2" toma una variable Float y devuelve un "15" si esa variable n vale 1, y si n vale -1 devuelve un "-15"
+
+--9c La funcion "f3" toma una variable Float n y devuelve otro Float, especificamente si n es menor o igual a 9 devuelve un "7", y si n es mayor o igual a 3 devuelve un "5", de todas formas como Haskell ejecuta de arriba hacia abajo si n valiese 6 cumple primero con ser menor que 9 por lo que devuelve 7 por mas que tambien cumpla la condicion de mayor a 3.
+
+--9d La funcion "f4" toma dos variables float x y devolviendo siempre la sumatoria entre ambas divididas por 2, osea su promedio
+
+--9e La funcion "f5" hace lo mismo que la anterior pero tomando un par ordenado de floats (x,y), y devuelta devolviendo la suma entre ambos elementos de la tupla divididos por 2, osea su promedio
+
+--9f La funcion "f6" toma una varibale a siendo esta un Float, y la devuelve como numero entero, si esta es igual a la variable entera de b devuelve un True, en otro caso devuelve un False
