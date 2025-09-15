@@ -75,13 +75,13 @@ estanRelacionados a b | a == 0 || b == 0 || div (-a) b ==0 = False
                       | otherwise = False
 
 --4 a
-productoInterno :: (Int, Int) -> (Int, Int) -> Int
+productoInterno :: (Float, Float) -> (Float, Float) -> Float
 productoInterno (a,b) (c,d) = a*c + b*d
 
 --4b
-esParMenor :: (Int, Int) -> (Int, Int) -> Bool
-esParMenor (a,b)(c,d) | a < c && b < d = True
-                      | otherwise = False
+esParMenor :: (Float, Float) -> (Float, Float) -> Bool
+esParMenor (a,b)(c,d) | a < c && b < d = True  --Se puede simplemente escribir: esParMenor (a,b)(c,d) = a < c && b < d (pattern matching)
+                      | otherwise = False      --Tambien podemos dar dos variables T1 y T2 y reescribir por ej a<c como fst T1 < fst T2 y asi los demas
 
 --4c
 distancia :: (Float, Float) -> (Float, Float) -> Float
@@ -104,9 +104,9 @@ sumarSoloMultiplos (a,b,c) d | mod a d == 0 && mod b d == 0 && mod c d == 0 = a 
 
 --4f
 posPrimerPar :: (Int, Int, Int) -> Int
-posPrimerPar (a,b,c) | even a = a     --Tambien se puede usar mod a 2 == 0 = a para cada variable
-                     | even b = b
-                     | even c = c      
+posPrimerPar (a,b,c) | even a = 1     --Tambien se puede usar mod a 2 == 0 = 1 para cada variable (no usar even en la prueba)
+                     | even b = 2
+                     | even c = 3     
                      | otherwise = 4
 
 --4g
