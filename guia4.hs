@@ -1,18 +1,18 @@
 --Ejemplo recursion
 factorial :: Int -> Int
 factorial n | n == 0 = 1
-            | otherwise = n*factorial(n-1)
+            | otherwise = n*factorial (n-1)
 
 --1 
 fibonacci :: Int -> Int
 fibonacci n | n == 0 = 0
             | n == 1 = 1
-            | otherwise = fibonacci(n-1) + fibonacci(n-2)
+            | otherwise = fibonacci (n-1) + fibonacci (n-2)
 
 --2
 parteEntera :: Float -> Int
 parteEntera x | x < 1 = 0
-              | otherwise = 1 + parteEntera(x-1)
+              | otherwise = 1 + parteEntera (x-1)
 
 --3
 esDivisible :: Int -> Int -> Bool
@@ -23,13 +23,13 @@ esDivisible x y | x == 0 = True
 --4
 sumaImpares :: Int -> Int
 sumaImpares x | x == 0 = 0
-              | otherwise = (2*x - 1) + sumaImpares(x - 1) -- siempre dara un numero impar 2x -1, y se repite en bucle restandole 1 a x hasta que de 0
+              | otherwise = (2*x - 1) + sumaImpares (x - 1) -- siempre dara un numero impar 2x -1, y se repite en bucle restandole 1 a x hasta que de 0
 
 --5
 medioFact :: Int -> Int
 medioFact x | x == 0 = 1
             | x == 1 = 1
-            | otherwise = x * medioFact(x-2) -- es el medio factorial de un numero, multiplica a ese numero y a los que le siguen hasta llegar a 1 saltando de 2 en 2
+            | otherwise = x * medioFact (x-2) -- es el medio factorial de un numero, multiplica a ese numero y a los que le siguen hasta llegar a 1 saltando de 2 en 2
 
 --6
 todosDigitosIguales :: Int -> Bool
@@ -38,12 +38,12 @@ todosDigitosIguales x | x < 10 = True
                       | otherwise = False -- compara el ultimo digito con el penultimo, si son iguales sigue comparando, si no son iguales devuelve False
 
 --7
---cantDigitos :: Int -> Int
---cantDigitos n | n < 10 = 1
---              | otherwise = cantDigitos (div n 10)+ 1
+cantDigitos :: Int -> Int
+cantDigitos x | x == 0 = 0
+              | otherwise = 1 + cantDigitos (div x 10)
 
---iesimoDigito :: Int -> Int -> Int
---iesimoDigito  
+iesimoDigito :: Int -> Int -> Int
+iesimoDigito x i = mod (div x (10^(cantDigitos x - i))) 10
 
 --8
 sumaDigitos :: Int -> Int
@@ -51,3 +51,35 @@ sumaDigitos x | x < 10 = x
               | otherwise = mod x 10 + sumaDigitos (div x 10) -- suma el ultimo digito usando el mod y luego lo divide por 10 para que quede como ultimo digito el penultimo y asi sucesivamente hasta que queda un solo digito
 
 --9
+
+--10a
+sumatoria1 :: Int -> Int
+sumatoria1 n | n == 0 = 0
+             | otherwise = 2^n + sumatoria1 (n-1)
+
+fff :: Int -> Int
+fff 0 = 0
+fff n = 2^n + fff (n-1)
+
+--10b
+sumatoria2 :: Int -> Int -> Int
+sumatoria2 q n | n == 1 = q
+               | otherwise = q^n + sumatoria2 q (n-1)
+
+--10c
+sumatoria3 :: Int -> Int -> Int
+sumatoria3 q n | n == 1 = q^2 + q
+               | otherwise = q^(2*n) + q^(2*n-1) + sumatoria3 q (n-1)
+
+--10d
+
+--11a
+eAprox :: Integer -> Float
+eAprox x | x == 0 = 0
+         | otherwise = eAprox (x - 1) + (1 / factorial2 x)
+
+factorial2 :: Integer -> Float
+factorial2 0 = 1.0
+factorial2 n = fromIntegral n * factorial2 (n - 1)
+
+--11b
