@@ -83,3 +83,25 @@ factorial2 0 = 1.0
 factorial2 n = fromIntegral n * factorial2 (n - 1)
 
 --11b
+e :: Float
+e = eAprox 10
+
+--12
+sucesion :: Int -> Float
+sucesion n | n == 1 = 2
+           | otherwise = 2 + (1 / sucesion (n-1))
+
+raizDe2Aprox :: Int -> Float
+raizDe2Aprox n = sucesion n - 1
+
+
+--13
+sumatoriaInterna :: Int -> Int -> Int
+sumatoriaInterna n 1 = n
+sumatoriaInterna n m = m^m + sumatoriaInterna n (m-1)
+
+sumatoriaDoble :: Int -> Int -> Int
+sumatoriaDoble 1 m = sumatoriaInterna 1 m
+sumatoriaDoble n m = m^m + sumatoriaInterna n (m-1)
+
+--14
