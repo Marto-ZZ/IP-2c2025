@@ -1,5 +1,6 @@
-import Data.Binary.Get (Decoder(Fail))
 --Ejemplo recursion
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use even" #-}
 factorial :: Int -> Int
 factorial n | n == 0 = 1
             | otherwise = n*factorial (n-1)
@@ -140,9 +141,29 @@ esPrimo n =  menorDivisor n == n
 --16 c
 --sonCoprimos :: Int -> Int -> Bool
 --sonCoprimos n m | menorDivisorCompartido n m 2 == 1 = True
-               -- | otherwise = False
+--                | otherwise = False
 
 --menorDivisorCompartido :: Int -> Int -> Int -> Int
 --menorDivisorCompartido n m k | mod n k == 0 && mod m k == 0 = k
-    --                         | n == 1 || m == 1 = 1
-       --                      | otherwise = menorDivisorCompartido n m (k + 1)
+--                             | n == 1 || m == 1 = 1
+--                             | otherwise = menorDivisorCompartido n m (k + 1)
+
+--17
+esFibonacci :: Int -> Bool
+esFibonacci n = fibonacci2variables n 0
+
+fibonacci2variables :: Int -> Int -> Bool
+fibonacci2variables n k | fibonacci k == n = True
+                        | fibonacci k > n = False
+                        | otherwise = fibonacci2variables n (k+1)
+
+--18
+mayorDigitoPar :: Int -> Int
+mayorDigitoPar n | n < 10 && par n = n
+                 | n < 10 = -1
+                 | par ultimoDigito = max ultimoDigito recursion
+                 | otherwise = recursion
+                 where 
+                    ultimoDigito = mod n 10
+                    par x = mod x 2 == 0
+                    recursion = mayorDigitoPar (div n 10)
