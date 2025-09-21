@@ -1,3 +1,4 @@
+import Data.Binary.Get (Decoder(Fail))
 --Ejemplo recursion
 factorial :: Int -> Int
 factorial n | n == 0 = 1
@@ -105,3 +106,43 @@ sumatoriaDoble 1 m = sumatoriaInterna 1 m
 sumatoriaDoble n m = m^m + sumatoriaInterna n (m-1)
 
 --14
+sumaPotencias :: Int -> Int -> Int -> Int
+sumaPotencias q n m | n == 0 = 0
+                    | otherwise = sumatoriaM q n m + sumatoriaM q (n-1) m
+
+sumatoriaM :: Int -> Int -> Int -> Int
+sumatoriaM q n m | m == 0 = 0
+                 | otherwise = q^(n+m) + sumatoriaM q n (m-1)
+
+
+--15
+sumaRacionales :: Int -> Int -> Float
+sumaRacionales n m | n == 0 = 0
+                   | otherwise = (fromIntegral n / fromIntegral m) + sumaRacionales (n-1) m + sumaM n (m-1)
+
+sumaM :: Int -> Int -> Float
+sumaM n m | m == 1 = fromIntegral n
+          | otherwise = fromIntegral n / fromIntegral m + sumaM n (m-1)
+
+--16 a
+menorDivisor :: Int -> Int
+menorDivisor n = menorDivisorDesde n 2
+
+menorDivisorDesde :: Int -> Int -> Int
+menorDivisorDesde n k | mod n k == 0 = k
+                      | otherwise = menorDivisorDesde n (k + 1)
+
+--16 b
+esPrimo :: Int -> Bool
+esPrimo 1 = False
+esPrimo n =  menorDivisor n == n
+
+--16 c
+--sonCoprimos :: Int -> Int -> Bool
+--sonCoprimos n m | menorDivisorCompartido n m 2 == 1 = True
+               -- | otherwise = False
+
+--menorDivisorCompartido :: Int -> Int -> Int -> Int
+--menorDivisorCompartido n m k | mod n k == 0 && mod m k == 0 = k
+    --                         | n == 1 || m == 1 = 1
+       --                      | otherwise = menorDivisorCompartido n m (k + 1)
