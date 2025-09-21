@@ -1,6 +1,4 @@
---Ejemplo recursion
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-{-# HLINT ignore "Use even" #-}
+--Ejemplo recursion 
 factorial :: Int -> Int
 factorial n | n == 0 = 1
             | otherwise = n*factorial (n-1)
@@ -139,14 +137,13 @@ esPrimo 1 = False
 esPrimo n =  menorDivisor n == n
 
 --16 c
---sonCoprimos :: Int -> Int -> Bool
---sonCoprimos n m | menorDivisorCompartido n m 2 == 1 = True
---                | otherwise = False
+maxComunDivisor :: Int -> Int -> Int
+maxComunDivisor x y | y == 0 = abs x
+                    | otherwise = maxComunDivisor y (mod x y)
 
---menorDivisorCompartido :: Int -> Int -> Int -> Int
---menorDivisorCompartido n m k | mod n k == 0 && mod m k == 0 = k
---                             | n == 1 || m == 1 = 1
---                             | otherwise = menorDivisorCompartido n m (k + 1)
+sonCoprimos :: Int -> Int -> Bool
+sonCoprimos n m | n == 0 && m == 0 = False
+                | otherwise = maxComunDivisor (abs n) (abs m) == 1
 
 --17
 esFibonacci :: Int -> Bool
@@ -167,3 +164,16 @@ mayorDigitoPar n | n < 10 && par n = n
                     ultimoDigito = mod n 10
                     par x = mod x 2 == 0
                     recursion = mayorDigitoPar (div n 10)
+
+--21
+pitagoras :: Integer -> Integer -> Integer -> Integer
+pitagoras m n r | n == 0 = sumaTernas m 0 r                           --Si n es 0 devuelve la suma de ternas con m y r
+                | otherwise = sumaTernas m n r + pitagoras m (n-1) r  --Si n no es 0 suma la cantidad de ternas con m,n y r y sigue buscando con n-1
+
+sumaTernas :: Integer -> Integer -> Integer -> Integer
+sumaTernas m n r | m == 0 && esTernaPitagorica m n r = 1              --Si m es es 0 y es terna pitagorica devuelve 1
+                 | m == 0 = 0                                         --Si m es 0 y no es terna pitagorica devuelve 0
+                 | esTernaPitagorica m n r = 1 + sumaTernas (m-1) n r --Si hay terna pitagorica suma 1 y sigue buscando con m-1
+                 | otherwise = 0 + sumaTernas (m-1) n r               --Si no hay terna pitagorica suma 0 y sigue buscando con m-1
+            where
+                  esTernaPitagorica a b c = a^2 + b^2 <= c^2          --Devuelve True si es terna pitagorica, False si no lo es
