@@ -165,6 +165,17 @@ mayorDigitoPar n | n < 10 && par n = n
                     par x = mod x 2 == 0
                     recursion = mayorDigitoPar (div n 10)
 
+--19
+esSumaDePrimos :: Int -> Bool
+esSumaDePrimos n | n == 2 = True
+                 | n == sumaP 2 n = True
+                 | otherwise = False
+
+sumaP :: Int -> Int -> Int
+sumaP p n | n <= 0 = 0
+          | esPrimo p = p + sumaP (p+1) (n-p)
+          | otherwise = 0 + sumaP (p+1) n
+
 --21
 pitagoras :: Integer -> Integer -> Integer -> Integer
 pitagoras m n r | n == 0 = sumaTernas m 0 r                           --Si n es 0 devuelve la suma de ternas con m y r
