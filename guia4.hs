@@ -98,11 +98,11 @@ raizDe2Aprox n = sucesion n - 1
 --13
 sumatoriaInterna :: Int -> Int -> Int
 sumatoriaInterna n 1 = n
-sumatoriaInterna n m = m^m + sumatoriaInterna n (m-1)
+sumatoriaInterna n m = n^m + sumatoriaInterna n (m-1)
 
 sumatoriaDoble :: Int -> Int -> Int
 sumatoriaDoble 1 m = sumatoriaInterna 1 m
-sumatoriaDoble n m = m^m + sumatoriaInterna n (m-1)
+sumatoriaDoble n m = sumatoriaInterna n m + sumatoriaDoble (n-1) m
 
 --14
 sumaPotencias :: Int -> Int -> Int -> Int
