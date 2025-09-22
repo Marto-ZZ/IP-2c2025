@@ -168,7 +168,7 @@ mayorDigitoPar n | n < 10 && par n = n
 --21
 pitagoras :: Integer -> Integer -> Integer -> Integer
 pitagoras m n r | n == 0 = sumaTernas m 0 r                           --Si n es 0 devuelve la suma de ternas con m y r
-                | otherwise = sumaTernas m n r + pitagoras m (n-1) r  --Si n no es 0 suma la cantidad de ternas con m,n y r y sigue buscando con n-1
+                | otherwise = sumaTernas m n r + piSStagoras m (n-1) r  --Si n no es 0 suma la cantidad de ternas con m,n y r y sigue buscando con n-1
 
 sumaTernas :: Integer -> Integer -> Integer -> Integer
 sumaTernas m n r | m == 0 && esTernaPitagorica m n r = 1              --Si m es es 0 y es terna pitagorica devuelve 1
