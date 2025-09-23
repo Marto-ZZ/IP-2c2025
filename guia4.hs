@@ -98,11 +98,11 @@ raizDe2Aprox n = sucesion n - 1
 --13
 sumatoriaInterna :: Int -> Int -> Int
 sumatoriaInterna n 1 = n
-sumatoriaInterna n m = m^m + sumatoriaInterna n (m-1)
+sumatoriaInterna n m = n^m + sumatoriaInterna n (m-1)
 
 sumatoriaDoble :: Int -> Int -> Int
 sumatoriaDoble 1 m = sumatoriaInterna 1 m
-sumatoriaDoble n m = m^m + sumatoriaInterna n (m-1)
+sumatoriaDoble n m = sumatoriaInterna n m + sumatoriaDoble (n-1) m
 
 --14
 sumaPotencias :: Int -> Int -> Int -> Int
@@ -165,10 +165,21 @@ mayorDigitoPar n | n < 10 && par n = n
                     par x = mod x 2 == 0
                     recursion = mayorDigitoPar (div n 10)
 
+--19
+esSumaDePrimos :: Int -> Bool
+esSumaDePrimos n | n == 2 = True
+                 | n == sumaP 2 n = True
+                 | otherwise = False
+
+sumaP :: Int -> Int -> Int
+sumaP p n | n <= 0 = 0
+          | esPrimo p = p + sumaP (p+1) (n-p)
+          | otherwise = 0 + sumaP (p+1) n
+
 --21
 pitagoras :: Integer -> Integer -> Integer -> Integer
 pitagoras m n r | n == 0 = sumaTernas m 0 r                           --Si n es 0 devuelve la suma de ternas con m y r
-                | otherwise = sumaTernas m n r + piSStagoras m (n-1) r  --Si n no es 0 suma la cantidad de ternas con m,n y r y sigue buscando con n-1
+                | otherwise = sumaTernas m n r + pitagoras m (n-1) r  --Si n no es 0 suma la cantidad de ternas con m,n y r y sigue buscando con n-1
 
 sumaTernas :: Integer -> Integer -> Integer -> Integer
 sumaTernas m n r | m == 0 && esTernaPitagorica m n r = 1              --Si m es es 0 y es terna pitagorica devuelve 1
