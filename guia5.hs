@@ -104,3 +104,15 @@ enLosContactos nom (x:xs)| nom == fst(x) = True               --Si el nombre "no
 
 
 --8
+--8.0 (ejemplo parecido a 8.1)
+multiplicarFilas :: [[Int]] -> [Int]                                   --Hacemos una funcion que hace una lista nueva donde su primer elemento es el resultado de una funcion auxiliar y le concatena la iteracion
+multiplicarFilas [] = []                                               --Hasta llegar al caso base donde la lista es vacia y no le agrega nada
+multiplicarFilas (x:xs) = (multiplicarUnaFila x) : multiplicarFilas xs 
+
+
+multiplicarUnaFila :: [Int] -> Int
+multiplicarUnaFila [] = 1
+multiplicarUnaFila (x:xs) = x * multiplicarUnaFila xs                  --Va multiplicando todos los elementos de la lista hasta que esta es vacia, donde multiplica por 1 y se corta la funcion
+
+
+--8.2
