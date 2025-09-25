@@ -1,3 +1,12 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+import System.Win32 (xBUTTON1)
+{-# HLINT ignore "Use :" #-}
+{-# HLINT ignore "Redundant bracket" #-}
+{-# HLINT ignore "Use null" #-}
+{-# HLINT ignore "Use foldr" #-}
+{-# HLINT ignore "Use map" #-}
+
+
 --1
 --1.1
 longitud :: [t] -> Int                --Tomamos una lista de cualquier tipo "t" (polimorfismo) y devolvemos un Int
@@ -69,25 +78,144 @@ quitarTodos q (x:xs) | longitud (x:xs) == 1 && q == x = []  --Muy similar al ant
 --2.7
 eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos (x:xs) | longitud xs == 0 = [x]
-                         | pertenece x xs = eliminarRepetidos xs
-                         | otherwise = x : eliminarRepetidos xs
+                         | pertenece x xs = eliminarRepetidos xs   --Si el elemento x esta en xs, entonces llamamos a la funcion con xs de variable
+                         | otherwise = [x] ++ eliminarRepetidos xs --Cuando un elemento no este repetido se lo va a concatenar a la funcion llamandose a si misma hasta el caso base
 
+--2.8
+--mismosElementos :: (Eq t) => [t] -> [t] -> Bool
+--mismosElementos (x:xs) (y:ys) | xs == [] && ys == [] = True
+--                              | pertenece x (y:ys) && pertenece y (x:xs) = mismosElementos xs ys
+--                              | otherwise = False
 
+--2.9
+capicua :: (Eq t) => [t] -> Bool
+capicua (x:xs) | longitud (x:xs) == 1 = True
+               | (x:xs) == reverso (x:xs) = True  --Nos ayudamos de la funcion reverso antes hecha y definimos como caso base a la lista de un solo elemento, siendo siemre capicua
+               | otherwise = False
 
 --3
+--3.1
+sumatoria :: [Int] -> Int
+sumatoria [] = 0
+sumatoria (x:xs) | xs == [] = x
+                 | otherwise = x + sumatoria xs  --Se van sumando todos los elementos de la lista hasta que no queden mas elementos
+
+--3.2
+productoria :: [Int] -> Int
+productoria [] = 0                                  --No me quedo claro si cuando damos una lista vacia debe dar 0 o 1, de todas formas es un caso especifico, lo que importa esta abajo
+productoria (x:xs) | xs == [] = x
+                   | otherwise = x * productoria xs --Igual que la anterior pero se multiplican
+
 --3.3
 maximo :: [Int] -> Int
 maximo (x:xs) | longitud (x:xs) == 1 = x                    --Si la long es 1 entonces solo hay un elemento que es el maximo al mismo tiempo (caso base)
               | x > head (xs) = maximo (x : (tail xs))       --Si el primer elemento es mas grande que el segundo, entonces iteramos con para probar la funcion con el primer elemento y la cola de lo que sigue
               | otherwise = maximo (head (xs) : (tail xs))   --Si el primero es mas chico que el segundo, entonces iteramos con el segundo elemento y los numeros que le siguen en la lista
 
+--3.4
+sumarN :: Int -> [Int] -> [Int]
+sumarN n (x:xs) | xs == [] = [x + n]               --Agarramos todos los elementos de la lista y les vamos sumando el numero que le dimos como variable n
+                | otherwise = x + n : sumarN n xs  --La funcion se acaba cuando se le suma n a todos los elementos
 
+--3.5
+sumarElPrimero :: [Int] -> [Int] 
+sumarElPrimero (x:xs) | xs == [] = [x]                --Igual que la anterior pero se le suma x a todos los elementos de (x:xs)
+                      | otherwise = x+x : sumarN x xs
+
+--3.6
+sumarElUltimo :: [Int] -> [Int]
+sumarElUltimo (x:xs) | xs == [] = [x]                                    --Lo mismo que los otros dos pero sumamos el ultimo elemento de la lista usando la funcion ya programada "ultimo xs"
+                     | otherwise = x + ultimo xs : sumarN (ultimo xs) xs
+
+--3.7
+pares :: [Int] -> [Int]
+pares (x:xs) | xs == [] && mod x 2 == 0 = [x]  --Vamos a concatenar a una nueva lista todos los x de una lista que su resto al dividirlos por 2 sea 0
+             | xs == [] = []
+             | mod x 2 == 0 = x : pares xs
+             | otherwise = pares xs
+
+--3.8
+multiplosDeN :: Int -> [Int] -> [Int]
+multiplosDeN n (x:xs) | xs == [] && mod n x == 0 = [x]         --Igual que el anterior pero se hace una nueva lista con los multiplos del numero n que le demos a la funcion
+                      | xs == [] = []
+                      | mod n x == 0 = x : multiplosDeN n xs   --Un multiplo de n sera aquel numero que multiplicado por algun numero k nos devuelva n
+                      | otherwise = multiplosDeN n xs        
 
 --3.9
 ordenar :: [Int] -> [Int]
 ordenar [x] = [x]                                             --Caso base, nuestra lista tiene un solo elemento, osea que ya esta ordenada
 ordenar xs = ordenar (quitar (maximo (xs)) xs) ++ [maximo xs]  --Hacemos recursion sobre una lista xs donde iteramos despues de sacarle a esa lista su maximo y concatenarselo al final
 
+
+--4
+--4.1.a
+sacarBlancosRepetidos :: [Char] -> [Char]
+sacarBlancosRepetidos [] = []
+sacarBlancosRepetidos (x:xs) | x == ' ' && head xs == ' ' = sacarBlancosRepetidos xs
+                             | otherwise = x : sacarBlancosRepetidos xs
+
+--4.1.b
+contarPalabras :: [Char] -> Int
+contarPalabras [] = 0
+contarPalabras (x:xs) | xs == [] = 0
+                      | x == ' ' && head xs == ' ' = contarPalabras xs
+                      | x /= ' ' && head xs == ' ' = 1 + contarPalabras xs
+                      | otherwise = contarPalabras xs
+
+--4.1.c
+palabras :: [Char] -> [[Char]]
+palabras x = palabrasAux x x
+
+palabrasAux :: [Char] -> [Char] -> [[Char]]
+palabrasAux [] y = [palabra y]
+palabrasAux (x:xs) y | x == ' ' = palabra y : palabrasAux xs xs 
+                     | otherwise = palabrasAux xs y
+
+palabra :: [Char] ->  [Char]
+palabra [] = []
+palabra (x:xs) | x == ' ' = []
+               | otherwise = x : palabra xs
+
+--4.1.d
+--palabraMasLarga :: [Char] -> [Char]
+--palabraMasLarga
+
+--4.1.e
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ aplanar xs
+
+--4.1.f
+aplanarConBlancos :: [[Char]] -> [Char]
+aplanarConBlancos [] = []
+aplanarConBlancos (x:xs) | xs == [] = x                                   --De una lista de strings tomamos cada palabra y le concatenamos un solo espacio
+                         | otherwise = x ++ [' '] ++ aplanarConBlancos xs --Despues de hacer eso, le volvemos a concatenar la funcion con variable xs hasta que xs sea una lista vacia
+
+--4.1.g
+aplanarConNBlancos :: [[Char]] -> Int -> [Char]
+aplanarConNBlancos (x:xs) n | xs == [] = x
+                            | otherwise = x ++ cantidadN n ++ aplanarConNBlancos xs n --Mismo pensamiento que el anterior pero definimos cuantos espacios en blanco concatenamos
+
+cantidadN :: Int -> [Char]
+cantidadN n | n == 1 = [' ']                    --Para eso nos auyudamos de una funcion auxiliar que dado un numero n que representa cuantos espacios en blanco vamos a concatenar
+            | otherwise = ' ' : cantidadN (n-1) --Vaya sumando espacios en blanco hasta que ese numero baje a 1, llamando a la funcion con una variable n-1
+
+
+--5
+--5.1
+sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada [] = []
+sumaAcumulada l = sumaAcumulada (quitarUltimo l) ++ [sumaAnteriores l]
+
+sumaAnteriores :: (Num t) => [t] -> t
+sumaAnteriores [] = 0
+sumaAnteriores (x:xs) = x + sumaAnteriores xs  
+
+quitarUltimo :: (Num t) => [t] -> [t]
+quitarUltimo (x:xs) | null xs = []
+                    | otherwise = x : quitarUltimo xs
+
+--5.2
 
 
 --6
