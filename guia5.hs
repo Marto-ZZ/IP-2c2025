@@ -49,26 +49,28 @@ todosDistintos (x:xs) | longitud (x:xs) == 0 = False                        --Mu
 hayRepetidos :: (Eq t) => [t] -> Bool
 hayRepetidos (x:xs) | todosDistintos (x:xs) = False   --Nos ayudamos de la funcion del ejercicio anterior, si todos NO son distintos quiere decir que un elemento se repite
                     | otherwise = True
-            
+
 --2.5
 quitar :: (Eq t) => t -> [t] -> [t]
 quitar q [] = []                                        --Nuestro caso base es que si la long de la lista es 1 devolvemos dependiendo si ese elemento es igual al nuemero q que ingresa el usuario
 quitar q (x:xs) | longitud (x:xs) == 1 && x == q = []   --Si q no es x entonces devuelve la lista con x, en cambio si q es x entonces devuelve la lista
-                | longitud (x:xs) == 1 = [x]            
+                | longitud (x:xs) == 1 = [x]
                 | q == x = xs                           --Si q es x pero la longitud no es 1 deuvelve el resto de la lista
                 | otherwise = x : quitar q xs           --Hacemos recursion si x no vale q, devolvemos una lista con x y le concatenamos la iteracion de quitar pero con q y la tail de (x:xs)
 
 --2.6.
-quitarTodos :: (Eq t) => t -> [t] -> [t]     
+quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos q (x:xs) | longitud (x:xs) == 1 && q == x = []  --Muy similar al anterior, solo que no frenamos cuando q == x = xs
                      | longitud (x:xs) == 1 = [x]
-                     | q == x = quitarTodos q xs    
+                     | q == x = quitarTodos q xs
                      | q /= x = x : quitarTodos q (xs)
                      | otherwise = (x:xs)
-                
+
 --2.7
---eliminarRepetidos :: (Eq t) => [t] -> [t]
---eliminarRepetidos (x:xs) |
+eliminarRepetidos :: (Eq t) => [t] -> [t]
+eliminarRepetidos (x:xs) | longitud xs == 0 = [x]
+                         | pertenece x xs = eliminarRepetidos xs
+                         | otherwise = x : eliminarRepetidos xs
 
 
 
@@ -76,15 +78,15 @@ quitarTodos q (x:xs) | longitud (x:xs) == 1 && q == x = []  --Muy similar al ant
 --3.3
 maximo :: [Int] -> Int
 maximo (x:xs) | longitud (x:xs) == 1 = x                    --Si la long es 1 entonces solo hay un elemento que es el maximo al mismo tiempo (caso base)
-              | x > head(xs) = maximo (x : (tail xs))       --Si el primer elemento es mas grande que el segundo, entonces iteramos con para probar la funcion con el primer elemento y la cola de lo que sigue
-              | otherwise = maximo (head(xs) : (tail xs))   --Si el primero es mas chico que el segundo, entonces iteramos con el segundo elemento y los numeros que le siguen en la lista
+              | x > head (xs) = maximo (x : (tail xs))       --Si el primer elemento es mas grande que el segundo, entonces iteramos con para probar la funcion con el primer elemento y la cola de lo que sigue
+              | otherwise = maximo (head (xs) : (tail xs))   --Si el primero es mas chico que el segundo, entonces iteramos con el segundo elemento y los numeros que le siguen en la lista
 
 
 
 --3.9
 ordenar :: [Int] -> [Int]
 ordenar [x] = [x]                                             --Caso base, nuestra lista tiene un solo elemento, osea que ya esta ordenada
-ordenar xs = ordenar (quitar (maximo(xs)) xs) ++ [maximo xs]  --Hacemos recursion sobre una lista xs donde iteramos despues de sacarle a esa lista su maximo y concatenarselo al final
+ordenar xs = ordenar (quitar (maximo (xs)) xs) ++ [maximo xs]  --Hacemos recursion sobre una lista xs donde iteramos despues de sacarle a esa lista su maximo y concatenarselo al final
 
 
 
@@ -97,7 +99,7 @@ type ContactosTel = [Contacto]
 
 enLosContactos :: Nombre -> ContactosTel -> Bool
 enLosContactos nom [] = False                                 --Si la lista de contactos (tuplas con nombre y telefono) es vacia, entonces siempre sera falso que algo este dentro de eso
-enLosContactos nom (x:xs)| nom == fst(x) = True               --Si el nombre "nom" esta en el primer elemento de la lista que tiene las tupla contacto, entonces dara true
+enLosContactos nom (x:xs)| nom == fst (x) = True               --Si el nombre "nom" esta en el primer elemento de la lista que tiene las tupla contacto, entonces dara true
                        | xs == [] = False                     --Si despues de la primera tupla no hay mas tuplas restantes entonces sera falso
                        | otherwise = enLosContactos nom (xs)  --Si ninguna se cumple, entonces iteramos con la fucion usando el nombre y la lista Contacto pero sin la priemra tupla
 
@@ -107,7 +109,7 @@ enLosContactos nom (x:xs)| nom == fst(x) = True               --Si el nombre "no
 --8.0 (ejemplo parecido a 8.1)
 multiplicarFilas :: [[Int]] -> [Int]                                   --Hacemos una funcion que hace una lista nueva donde su primer elemento es el resultado de una funcion auxiliar y le concatena la iteracion
 multiplicarFilas [] = []                                               --Hasta llegar al caso base donde la lista es vacia y no le agrega nada
-multiplicarFilas (x:xs) = (multiplicarUnaFila x) : multiplicarFilas xs 
+multiplicarFilas (x:xs) = (multiplicarUnaFila x) : multiplicarFilas xs
 
 
 multiplicarUnaFila :: [Int] -> Int
