@@ -1,5 +1,4 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-import System.Win32 (xBUTTON1)
 {-# HLINT ignore "Use :" #-}
 {-# HLINT ignore "Redundant bracket" #-}
 {-# HLINT ignore "Use null" #-}
