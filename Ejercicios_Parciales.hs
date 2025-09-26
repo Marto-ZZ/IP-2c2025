@@ -9,3 +9,17 @@ cantidadNumerosAbundantes :: Int -> Int -> Int
 cantidadNumerosAbundantes d h | d <= h && sumadivisores h (h-1) > h = 1 + cantidadNumerosAbundantes d (h-1)
                               | d > h = 0
                               | otherwise = 0 + cantidadNumerosAbundantes d (h-1)
+
+
+--Ejercicios de parcial para practicar
+--Sistema de Stock
+--1
+
+--2
+stockDeProducto :: [(String, Int)] -> String -> Int
+stockDeProducto [] prod = 0
+stockDeProducto ((p,s):xs) prod | prod == p = s
+                                | otherwise = stockDeProducto xs prod
+
+--3
+--dineroEnStock
