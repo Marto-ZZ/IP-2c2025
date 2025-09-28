@@ -3,7 +3,7 @@
 # Primer Parcial
 
 ![](https://www.pngitem.com/pimgs/m/165-1656758_haskell-programming-language-logo-hd-png-download.png)
-##Contendio:
+## Contendio:
 - Práctica 1
 --[Guía 1](https://github.com/Marto-ZZ/clases-haskell/blob/main/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%201.pdf)
 --[Teórica 1](https://github.com/Marto-ZZ/clases-haskell/blob/main/Te%C3%B3ricas/Te%C3%B3rico%201.pdf)
