@@ -3,6 +3,7 @@
 {-# HLINT ignore "Use foldr" #-}
 {-# HLINT ignore "Use null" #-}
 
+
 --Parcial 2025 1er cuatri Tema 2 
 --1 
 sumadivisores :: Int -> Int -> Int

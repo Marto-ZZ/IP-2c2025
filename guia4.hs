@@ -1,5 +1,7 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Use even" #-}
+
+
 --Ejemplo recursion 
 factorial :: Int -> Int
 factorial n | n == 0 = 1

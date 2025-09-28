@@ -211,7 +211,7 @@ sumaAnteriores [] = 0
 sumaAnteriores (x:xs) = x + sumaAnteriores xs  
 
 quitarUltimo :: (Num t) => [t] -> [t]
-quitarUltimo (x:xs) | null xs = []
+quitarUltimo (x:xs) | xs == [] = []
                     | otherwise = x : quitarUltimo xs
 
 --5.2
