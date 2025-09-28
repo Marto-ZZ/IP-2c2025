@@ -28,4 +28,4 @@
 --[Ejercicios Pre Parcial](https://github.com/Marto-ZZ/clases-haskell/blob/main/Enunciados%20Gu%C3%ADas/Ejercicios%20Parcial%201.pdf)
 --[Resolución ejercicios](https://github.com/Marto-ZZ/clases-haskell/blob/main/Ejercicios_Parciales.hs)
 
-###suerte :)
+### Suerte :)
