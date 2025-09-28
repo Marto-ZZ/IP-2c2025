@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use even" #-}
 --Ejemplo recursion 
 factorial :: Int -> Int
 factorial n | n == 0 = 1
@@ -166,8 +168,8 @@ mayorDigitoPar n | n < 10 && par n = n
                     recursion = mayorDigitoPar (div n 10)
 
 --19
-esSumaDePrimos :: Int -> Bool
-esSumaDePrimos n | n == 2 = True
+esSumaInicialDePrimos :: Int -> Bool
+esSumaInicialDePrimos n | n == 2 = True
                  | n == sumaP 2 n = True
                  | otherwise = False
 
