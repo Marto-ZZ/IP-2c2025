@@ -2,6 +2,7 @@
 {-# HLINT ignore "Use even" #-}
 {-# HLINT ignore "Use null" #-}
 {-# HLINT ignore "Use map" #-}
+{-# HLINT ignore "Use foldr" #-}
 
 --Simulacro T2 (parcial 1c2025)
 --1     
@@ -36,7 +37,7 @@ quitarRepetidas (x:xs) | xs == [] = [x]
 
 soloNombres :: [(String, Integer, Integer)]  -> [String]
 soloNombres [] = []
-soloNombres ((materia,_,_):xs) = materia : soloNombres xs                  
+soloNombres ((materia,_,_):xs) = materia : soloNombres xs
 
 
 cursadasVencidas :: [(String, Integer, Integer)] -> [String]
@@ -49,7 +50,7 @@ listaHastaNegativo :: [Integer] -> [Integer]
 listaHastaNegativo [] = []
 listaHastaNegativo (x:xs) | x >= 0 && head xs < 0 = [x]
                           | x < 0 = listaHastaNegativo xs
-                          | x >= 0 = x : listaHastaNegativo xs 
+                          | x >= 0 = x : listaHastaNegativo xs
 
 
 cambiarMenores :: [Integer] -> Integer -> [Integer]
@@ -74,3 +75,71 @@ contarPosicion :: [Integer] -> Integer -> Integer
 contarPosicion (x:xs) n | n == 1 = x
                         | xs == [] && n >= 2 = 1
                         | otherwise = contarPosicion xs (n-1)
+
+
+--Parcial 2c 2024 T2
+--1
+contarHasta :: [Integer] -> Integer -> [Integer]
+contarHasta [] _ = []
+contarHasta (x:xs) n | n == 1 = [x]
+                     | otherwise = x : contarHasta xs (n-1)
+
+sumaLista :: [Integer] -> Float
+sumaLista (x:xs) | xs == [] = fromIntegral x
+                 | otherwise = fromIntegral x + sumaLista xs
+
+
+cantidadElementos :: [Integer] -> Float
+cantidadElementos [] = 0
+cantidadElementos (x:xs) = 1 + cantidadElementos xs
+
+promedioLista :: [Integer] -> Float
+promedioLista (x:xs) = sumaLista (x : xs) / cantidadElementos (x : xs)
+
+
+mediaMovilN :: [Integer] -> Integer -> Float
+mediaMovilN (x:xs) n = promedioLista (contarHasta (x:xs) n)
+
+
+--2
+esPrimo :: Integer -> Integer -> Bool
+esPrimo 1 _ = False
+esPrimo p q | p == q = True
+            | mod p q == 0 = False
+            | otherwise = esPrimo p (q+1)
+
+factores :: Integer -> Integer -> Integer
+factores 1 _ = 1
+factores n d | n == d && esPrimo d 2 = 1
+             | n == d = 0
+             | mod n d == 0 && esPrimo d 2 = 1 + factores (div n d) d
+             | otherwise = factores n (d+1)
+
+
+esAtractivo :: Integer -> Bool
+esAtractivo 1 = False
+esAtractivo 2 = True
+esAtractivo n | esPrimo (factores n 2) 2 = True
+              | otherwise = False
+
+
+--3
+quitarBlancos :: [Char] -> [Char]
+quitarBlancos [] = []
+quitarBlancos (x:xs) | x == ' ' = quitarBlancos xs
+                     | otherwise = x : quitarBlancos xs
+
+
+palabraOrdenadaAux :: String -> Bool
+palabraOrdenadaAux [] = True
+palabraOrdenadaAux (x:xs) | xs == [] = True
+                          | x < head xs = palabraOrdenadaAux xs
+                          | otherwise = False
+
+
+palabraOrdenada :: String -> Bool
+palabraOrdenada [] = True
+palabraOrdenada (x:xs) = palabraOrdenadaAux (quitarBlancos (x:xs))
+
+
+--4
