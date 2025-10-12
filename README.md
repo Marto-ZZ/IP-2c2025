@@ -29,7 +29,7 @@
 --[Resolución ejercicios](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Ejercicios_Parciales.hs)
 --[Resolución simulacro T2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Simulacro.hs)
 
-![](https://images.icon-icons.com/2699/PNG/512/python_horizontal_logo_icon_169825.png)
+![](https://www.educaciontrespuntocero.com/wp-content/uploads/2016/05/python-logo.png)
 ## Contendio:
 
 ### Suerte :)
