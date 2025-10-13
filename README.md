@@ -2,7 +2,7 @@
 
 # Primer Parcial
 
-![](https://www.pngitem.com/pimgs/m/165-1656758_haskell-programming-language-logo-hd-png-download.png)
+![](https://ih1.redbubble.net/image.392890428.8099/st,small,507x507-pad,600x600,f8f8f8.u2.jpg)
 ## Contendio:
 - Práctica 1
 --[Guía 1](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%201.pdf)
@@ -28,5 +28,8 @@
 --[Ejercicios Pre Parcial](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Enunciados%20Gu%C3%ADas/Ejercicios%20Parcial%201.pdf)
 --[Resolución ejercicios](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Ejercicios_Parciales.hs)
 --[Resolución simulacro T2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Simulacro.hs)
+
+![](https://www.python.org.co/usuarios/pydata-bogota/python-medellin.jpg)
+## Contendio:
 
 ### Suerte :)
