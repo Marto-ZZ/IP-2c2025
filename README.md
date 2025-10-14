@@ -29,6 +29,8 @@
 --[Resolución ejercicios](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Ejercicios_Parciales.hs)
 --[Resolución simulacro T2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Simulacro.hs)
 
+# Segundo Parcial
+
 ![](https://www.python.org.co/usuarios/pydata-bogota/python-medellin.jpg)
 ## Contendio:
 - Práctica 6
