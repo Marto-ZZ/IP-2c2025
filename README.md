@@ -29,7 +29,12 @@
 --[Resolución ejercicios](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Ejercicios_Parciales.hs)
 --[Resolución simulacro T2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Simulacro.hs)
 
+# Segundo Parcial
+
 ![](https://www.python.org.co/usuarios/pydata-bogota/python-medellin.jpg)
 ## Contendio:
-
+- Práctica 6
+--[Guía 6](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%206.pdf)
+--[Teórica 7](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Te%C3%B3ricas/Te%C3%B3rico%207.pdf)
+--[Resolución guía 6](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/guia6.py)
 ### Suerte :)
