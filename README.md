@@ -37,4 +37,8 @@
 --[Guía 6](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%206.pdf)
 --[Teórica 7](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Te%C3%B3ricas/Te%C3%B3rico%207.pdf)
 --[Resolución guía 6](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/guia6.py)
+- Práctica 7
+--[Guía 7](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%207.pdf)
+--[Teórica 8](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Te%C3%B3ricas/Te%C3%B3rico%208.pdf)
+--[Resolución guía 7](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/guia7.py)
 ### Suerte :)
