@@ -263,3 +263,73 @@ c.put(("Mateo Ruiz", 90123456, False, False))
 c.put(("Valentina Diaz", 12349876, False, False))
 
 print(atencion_a_clientes(c).queue)
+
+
+#3.16
+def calcular_promedio_por_estudiante(notas:list[tuple[str,float]]) -> dict[str,float]:
+    suma_notas : dict[str,float] = {}
+    cantidad_notas : dict[str,int] = {}
+
+    for (estudiante, nota) in notas:
+        if estudiante not in suma_notas:
+            suma_notas[estudiante] = nota
+            cantidad_notas[estudiante] = 1
+        else:
+            suma_notas[estudiante] += nota
+            cantidad_notas[estudiante] += 1
+
+    promedios: dict[str,float] = {}
+
+    for estudiante in suma_notas.keys():
+        suma_total = suma_notas[estudiante]
+        cantidad_final = cantidad_notas[estudiante]
+        promedios[estudiante] = suma_total / cantidad_final
+    return promedios 
+
+print(calcular_promedio_por_estudiante([("Sole", 9.5), ("Maxi", 8.0), ("Sole", 9.0)]))
+
+#3.17
+historiales : dict[str, pila] = {}
+def visitar_sitio(historiales:dict[tuple[str,pila[str]]], usuario:str, sitio:str):
+    if usuario in historiales.keys():
+        historiales[usuario].put(sitio)
+    else:
+        nueva_pila = pila()
+        nueva_pila.put(sitio)
+        historiales[usuario] = nueva_pila
+    return historiales
+
+def navegar_atras(historiales:dict[tuple[str,pila[str]]], usuario:str) -> str:
+    ultimo_sitio = historiales[usuario].get()
+    return ultimo_sitio
+
+#3.18
+Inv = dict[str,dict[str, int | float]]
+def agregar_producto(inventario:Inv, nombre:str, precio:float, cantidad:int):
+    nuevo_item = {"precio":precio , "cantidad":cantidad}
+    inventario[nombre] = nuevo_item
+
+print(agregar_producto({"pantalon": {"precio": 12800.00, "cantidad": 15}, "campera": {"precio": 42000.00, "cantidad": 7}}, "remera", 55.99, 3))
+
+def actualizar_stock(inventario:Inv, nombre:str, cantidad:int):
+    inventario[nombre]["cantidad"] = cantidad
+
+print(actualizar_stock({"remera": {"precio": 55.99, "cantidad": 3}}, "remera", 5))
+
+def actualizar_precio(inventario:Inv, nombre:str, precio:float):
+    inventario[nombre]["precio"] = precio
+
+def calcular_valor_inventario(inventario:Inv) -> float:
+    valor_inventario = 0
+    for prod in inventario:
+        valor_inventario += inventario[prod]["precio"] * inventario[prod]["cantidad"]
+    return valor_inventario
+
+print(calcular_valor_inventario({"remera": {"precio": 25000.99, "cantidad": 3}, "pantalon": {"precio": 35000.00, "cantidad": 15}}))
+
+inventario = {}
+agregar_producto(inventario, "Camisa", 20.0, 50)
+agregar_producto(inventario, "Pantal´on", 30.0, 30)
+actualizar_stock(inventario, "Camisa", 10)
+valor_total = calcular_valor_inventario(inventario)
+print("Valor total del inventario:", valor_total)  #debe imprimir 1100.0
