@@ -48,7 +48,13 @@
 --[Teórica 10](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Te%C3%B3ricas/Te%C3%B3rico%2010.pdf)
 --[Guía 8](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%208.pdf)
 --[Resolución guía 8](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/guia8.py)
-- Repaso Parcial Labo
+- Repaso Parcial
 --[Ejercicios Pre Parcial Labo](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Repaso%20Parcial%20(labo).pdf)
 --[Resolucion](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/ejercicios%20labo.py)
+--[Guía 10](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%2010%20(pre%20parcial).pdf)
+--[Resolución guía 10]()
+--[1c2025 T2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/Parcial%201c2025%20t2.py)
+--[1c2025 T1](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/Parcial%201c2025%20t1py)
+--[2c2023](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/Parcial%202c2023.py)
+--[2c2023 (simulacro)](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/guias%20resueltas/Simulacro%202c2023.py)
 ### Suerte :)
