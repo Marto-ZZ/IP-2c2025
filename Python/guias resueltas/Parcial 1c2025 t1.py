@@ -9,6 +9,7 @@ from queue import LifoQueue as Pila
 #asegura: { res ≥ ∑_{i=0}^k s[i] para todos los k tales que 0 ≤ k < |s| }
 #}
 
+
 def prefijo_que_mas_suma(s: list[int]) -> int:
     max = s[0]
     suma = 0
@@ -21,6 +22,7 @@ def prefijo_que_mas_suma(s: list[int]) -> int:
 
 print(prefijo_que_mas_suma([-5, -2, -3]))
 
+
 #Ejercicio 2 [2 puntos]
 
 #Todavía existen materias en las cuales los exámenes se entregan en papel. A medida que los estudiantes van entregando, van apoyando (¡apilando!) sobre el escritorio del docente sus exámenes, y en la primera hoja indican su nombre y la cantidad de hojas entregadas (además del enunciado). 
@@ -30,6 +32,7 @@ print(prefijo_que_mas_suma([-5, -2, -3]))
 #requiere: { Existe al menos un elemento p dentro de la pila examenes tal que p₁ = 0 }
 #asegura: { Sea p el primer elemento insertado en la pila examenes tal que p₁ = 0. Entonces, res = p₀ }
 #}
+
 
 def primera_entrega_en_blanco(examenes:Pila[tuple[str,int]]) -> str:
     lista_aux = []
@@ -53,6 +56,7 @@ examenes.put(["Yo", 0])
 print(examenes.queue)
 print(primera_entrega_en_blanco(examenes))
 
+
 #Ejercicio 3 [2 puntos]
 
 #Implementar la función desplazar_columna_hacia_arriba:
@@ -67,6 +71,16 @@ print(primera_entrega_en_blanco(examenes))
 #asegura: { A[|A|-1][col] = A@pre[0][col] }
 #}
 
+
+def desplazar_columna_hacia_arriba(A:list[list[int]], col:int):
+    primer_valor = A[0][col]
+    for i in range(len(A)):
+        for j in range(len(A[i])):
+            if 0 <= i < len(A)-1 and j == col:
+                A[i][j] = A[i + 1][j]
+    A[len(A)-1][col] = primer_valor
+    return A
+print(desplazar_columna_hacia_arriba([[1, 2, 3],[4, 5, 6],[7, 8, 9]], 0))
 
 
 #Ejercicio 4 [2,5 puntos]
@@ -85,6 +99,22 @@ print(primera_entrega_en_blanco(examenes))
 #(suma 3 puntos si salió primero, 2 puntos si salió segundo, 1 punto si salió tercero y 0 puntos si no estuvo en el podio de esa competencia) }
 #}
 
+
+def armar_ranking(podios: list[dict[int,str]]) -> dict[str,int]:
+    res = {}
+    for podio in podios:
+        for pos, nom in podio.items():
+            if nom not in res:
+                res[nom] = 0
+            if pos == 1:
+                res[nom] += 3
+            elif pos == 2:
+                res[nom] += 2
+            elif pos == 3:
+                res[nom] += 1
+    return res
+
+print(armar_ranking([{1: "Ana", 2: "Juan", 3: "Luis"},{1: "Ana", 2: "Luis", 3: "Juan"}]))
 
 
 #Ejercicio 5 [0,75 puntos]
