@@ -7,6 +7,7 @@
 - Práctica 1
 --[Teórica 1](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Te%C3%B3ricas/Te%C3%B3rico%201.pdf)
 --[Guía 1](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%201.pdf)
+--[Resolución guía 1](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/guias%20resueltas/guia1.pdf)
 - Práctica 2
 --[Teórica 2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Te%C3%B3ricas/Te%C3%B3rico%202.pdf)
 --[Guía 2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%202.pdf)
