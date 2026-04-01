@@ -9,6 +9,7 @@
 --[Resolución guía 1](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/guias%20resueltas/guia1.pdf)
 - Práctica 2
 --[Guía 2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%202.pdf)
+--[Resolución guía 2](https://github.com/Marto-ZZ/IP-2c2025/blob/minor-changes/Haskell/guias%20resueltas/guia2.pdf)
 - Práctica 3
 --[Guía 3](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%203.pdf)
 --[Resolución guía 3](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/guias%20resueltas/guia3.hs)
