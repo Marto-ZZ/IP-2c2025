@@ -1,5 +1,16 @@
 ### Guías Introducción a la Programación (FCEN) 2c2025
 
+```
+IP-2c2025/
+└── Haskell/ & Python/        ← dos carpetas con el contenido general del cuatri para cada lenguaje
+    ├── Enunciados Guías/     ← carpeta con los enunciados de las guías
+    │   └── guiaX.pdf         ← X representa el orden de las guías
+    ├── Teóricas/             ← carpeta con las clases teóricas de la materia
+    │   └── Teórico X.pdf     ← X representa el orden de las clases
+    └──  guias resuetlas/     ← carpeta con las guías resueltas
+         └── guiaX.pdf        ← X representa el orden de las guías
+```
+
 # Primer Parcial
 
 ![](https://ih1.redbubble.net/image.392890428.8099/st,small,507x507-pad,600x600,f8f8f8.u2.jpg)
