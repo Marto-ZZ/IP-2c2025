@@ -11,9 +11,9 @@ IP-2c2025/
          └── guiaX            ← X representa el orden de las guías
 ```
 
-# Primer Parcial
+# Primer Parcial 
+[![Haskell](https://skillicons.dev/icons?i=haskell&theme=dark)](https://skillicons.dev)
 
-![](https://ih1.redbubble.net/image.392890428.8099/st,small,507x507-pad,600x600,f8f8f8.u2.jpg)
 ## Contendio:
 - Práctica 1
 --[Guía 1](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%201.pdf)
@@ -38,7 +38,7 @@ IP-2c2025/
 
 # Segundo Parcial
 
-![](https://www.python.org.co/usuarios/pydata-bogota/python-medellin.jpg)
+[![Pyhton](https://skillicons.dev/icons?i=python&theme=dark)](https://skillicons.dev)
 ## Contendio:
 - Práctica 6
 --[Guía 6](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%206.pdf)
