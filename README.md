@@ -8,7 +8,7 @@ IP-2c2025/
     ├── Teóricas/             ← carpeta con las clases teóricas de la materia
     │   └── Teórico X.pdf     ← X representa el orden de las clases
     └──  guias resuetlas/     ← carpeta con las guías resueltas
-         └── guiaX.pdf        ← X representa el orden de las guías
+         └── guiaX            ← X representa el orden de las guías
 ```
 
 # Primer Parcial
