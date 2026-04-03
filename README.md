@@ -40,7 +40,7 @@ IP-2c2025/
 
 # Segundo Parcial
 
-## PYTHON
+### PYTHON
 [![Python](https://skillicons.dev/icons?i=python&theme=light)](https://skillicons.dev)
 
 ## Contendio:
