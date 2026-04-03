@@ -13,10 +13,9 @@ IP-2c2025/
 
 # Primer Parcial 
 
-<div align="center">
-<img src="https://skillicons.dev/icons?i=haskell&theme=light">
-    <h2>Haskell</h2>
-</img>
+<div>
+    <h2>Haskell</h2>   
+    <img src="https://skillicons.dev/icons?i=haskell&theme=light"></img>
 </div>
 
 ## Contendio:
