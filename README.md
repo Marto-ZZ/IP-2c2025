@@ -13,7 +13,7 @@ IP-2c2025/
 
 # Primer Parcial 
 
-#### HASKELL
+## HASKELL
 [![Haskell](https://skillicons.dev/icons?i=haskell&theme=light)](https://skillicons.dev)
 
 ## Contendio:
@@ -39,7 +39,10 @@ IP-2c2025/
 --[Resolución simulacro T2](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Haskell/Simulacro.hs)
 
 # Segundo Parcial
- Python [![Pyhton](https://skillicons.dev/icons?i=python&theme=light)](https://skillicons.dev)
+
+## PYTHON
+[![Python](https://skillicons.dev/icons?i=python&theme=light)](https://skillicons.dev)
+
 ## Contendio:
 - Práctica 6
 --[Guía 6](https://github.com/Marto-ZZ/IP-2c2025/blob/main/Python/Enunciados%20Gu%C3%ADas/Gu%C3%ADa%206.pdf)
