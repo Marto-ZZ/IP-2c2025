@@ -1,5 +1,7 @@
 ### Guías Introducción a la Programación (FCEN) 2c2025
 
+## 📁 Estructura del repo
+
 ```
 IP-2c2025/
 └── Haskell/ & Python/        ← dos carpetas con el contenido general del cuatri para cada lenguaje
